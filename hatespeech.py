@@ -31,3 +31,4 @@ while(True):
         break
     res=prep_data(txt)
     print(dict(res))
+    print("Done")
