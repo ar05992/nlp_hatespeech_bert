@@ -39,5 +39,5 @@ async def prep_data(text:Entities):
     pred = label_encoder.inverse_transform([pred])
     
     return {"Probability":str(np.round(probs,3)),
-            "Predictions":str(pred[0])}
+            "Prediction":str(pred[0])}
 
