@@ -1,0 +1,8 @@
+version: '3'
+services:
+    hatespeech:
+        restart: "no"
+        build: .
+        image: ${DOCKER_REGISTRY}/hatespeech:latest
+        ports:
+              - "8000:80"

@@ -1,0 +1,33 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from routers.Hatespeech import hatespeech
+
+import nltk
+
+nltk.download('stopwords')
+
+app = FastAPI(docs_url="/nizameilahi")
+
+
+origins = ["*"]
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+
+app.include_router(hatespeech.router)
+
+
+
+
+@app.get("/")
+async def root():
+    return {"message": "Hello welcome!"}
